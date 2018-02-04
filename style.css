@@ -1,12 +1,23 @@
 /*train schedule css*/
 
+body {
+	/*background-image: url("GrandCentralTerminalNYC.jpg");*/
+	background-image: url("tile-background.gif");
+}
+
 .jumbotron {
-	background-color: blue;
+	opacity: .5;
+	background-color: #3c3939;
 	text-align: center;
 	color: white;
 }
 
 h1 {
+	opacity: 1.0;
 	text-align: center;
-	background-color: blue;
+	background-color: 3c3939;
+}
+
+td {
+	font-family: 'Roboto Mono', monospace;
 }
