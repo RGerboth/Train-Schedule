@@ -67,9 +67,9 @@ database.ref().on("child_added", function(snapshot) {
     // Next Train
     // var nextTrain = moment().add(tMinutesTillTrain, "minutes");
 
-    $(".table").append("<tr><td>" + snapshot.val().trainName + "</td><td>" + snapshot.val().destination + "</td><td>" + snapshot.val().frequency + "</td><td>" + moment(nextTrain).format("hh:mm") + "</td><td>" + tMinutesTillTrain + "</td></tr>");
+    $(".table").append("<tr><td>" + snapshot.val().trainName + "</td><td>" + snapshot.val().destination + "</td><td>" + snapshot.val().frequency + "</td><td>" + moment(nextTrain).format("HH:mm") + "</td><td>" + tMinutesTillTrain + "</td></tr>");
 
-	$("#currentTime").text(moment(currentTime).format("hh:mm:ss"));
+	$("#currentTime").text(moment(currentTime).format("HH:mm:ss"));
     // log any errors
 	setTimeout(function(){refreshPage();}, 1000 * 1);
 
@@ -94,8 +94,8 @@ var refreshPage = function() {
 	    var nextTrain = moment().add(tMinutesTillTrain, "minutes");
 	    var nextTrain = moment().add(tMinutesTillTrain, "minutes");
 
-	    $(".table").append("<tr><td>" + snapshot.val().trainName + "</td><td>" + snapshot.val().destination + "</td><td>" + snapshot.val().frequency + "</td><td>" + moment(nextTrain).format("hh:mm") + "</td><td>" + tMinutesTillTrain + "</td></tr>");
-		$("#currentTime").text(moment(currentTime).format("hh:mm:ss"));
+	    $(".table").append("<tr><td>" + snapshot.val().trainName + "</td><td>" + snapshot.val().destination + "</td><td>" + snapshot.val().frequency + "</td><td>" + moment(nextTrain).format("HH:mm") + "</td><td>" + tMinutesTillTrain + "</td></tr>");
+		$("#currentTime").text(moment(currentTime).format("HH:mm:ss"));
     	});
 	});
 	setTimeout(function(){refreshPage();}, 1000 * 1);
