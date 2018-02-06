@@ -22,7 +22,7 @@ var frequency = 0;
 
 $("#submitButton").on("click", function(event) {
     event.preventDefault();
-//grab values from input field
+	//grab values from input field
 	trainName = $("#trainName").val().trim();
 	destination = $("#destination").val().trim();
 	firstTrainTime = $("#firstTrainTime").val().trim();
@@ -65,12 +65,14 @@ database.ref().on("child_added", function(snapshot) {
     // Next Train
     var nextTrain = moment().add(tMinutesTillTrain, "minutes");
     // Next Train
-    var nextTrain = moment().add(tMinutesTillTrain, "minutes");
+    // var nextTrain = moment().add(tMinutesTillTrain, "minutes");
 
     $(".table").append("<tr><td>" + snapshot.val().trainName + "</td><td>" + snapshot.val().destination + "</td><td>" + snapshot.val().frequency + "</td><td>" + moment(nextTrain).format("hh:mm") + "</td><td>" + tMinutesTillTrain + "</td></tr>");
 
-	$("#currentTime").text(moment(currentTime).format("hh:mm"));
+	$("#currentTime").text(moment(currentTime).format("hh:mm:ss"));
     // log any errors
+	setTimeout(function(){refreshPage();}, 1000 * 1);
+
 }, function(errorObject) {
 	console.log("Errors handled: " + errorObject.code);
 });
@@ -93,10 +95,8 @@ var refreshPage = function() {
 	    var nextTrain = moment().add(tMinutesTillTrain, "minutes");
 
 	    $(".table").append("<tr><td>" + snapshot.val().trainName + "</td><td>" + snapshot.val().destination + "</td><td>" + snapshot.val().frequency + "</td><td>" + moment(nextTrain).format("hh:mm") + "</td><td>" + tMinutesTillTrain + "</td></tr>");
-		$("#currentTime").text(moment(currentTime).format("hh:mm"));
+		$("#currentTime").text(moment(currentTime).format("hh:mm:ss"));
     	});
 	});
-	setTimeout(function(){refreshPage();}, 1000 * 10);
+	setTimeout(function(){refreshPage();}, 1000 * 1);
 }
-
-setTimeout(function(){refreshPage();}, 1000 * 10);
