@@ -12,6 +12,10 @@ body {
 	color: white;
 }
 
+.panel-title {
+	font-weight: 700;
+}
+
 h1 {
 	opacity: 1.0;
 	text-align: center;
